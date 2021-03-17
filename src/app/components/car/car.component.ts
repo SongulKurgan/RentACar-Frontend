@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from 'src/app/models/car';
+import { ActivatedRoute } from '@angular/router';
+import { Cardetail } from 'src/app/models/cardetails';
 import { CarService } from 'src/app/services/car.service';
+import { CarimageService } from 'src/app/services/carimage.service';
 
 @Component({
   selector: 'app-car',
@@ -8,19 +10,54 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car.component.css']
 })
 export class CarComponent implements OnInit {
-  cars:Car[] = [];
+  cars:Cardetail[] = [];
   dataLoaded=false;
-  constructor(private carService:CarService) { }
+  constructor(private carService:CarService, 
+    private activatedRoute:ActivatedRoute,
+    private carImageService:CarimageService) { }
 
   ngOnInit(): void {
-    this.getCars();
+    this.activatedRoute.params.subscribe(params=>{
+       if(params["brandId"]){
+         this.getCardetailsByBrand(params["brandId"])
+       }else if(params["colorId"]){
+         this.getCardetailsByColor(params["colorId"])
+       }else{
+         this.getCars()
+      }
+      this.getCars()
+    })
   }
 
   getCars(){
-    this.carService.getCars().subscribe(response=>{
+    this.carService.getCarsDetails().subscribe(response=>{
       this.cars=response.data
       this.dataLoaded=true;
+      this.setCarsPreviewImage(this.cars)
     })  
+  }
+   getCardetailsByBrand(brandId:number){
+     this.carService.getCarsDetailsByBrand(brandId).subscribe(response=>{
+       this.cars=response.data
+       this.dataLoaded=true;
+       this.setCarsPreviewImage(this.cars)
+       
+     })  
+   }
+   getCardetailsByColor(colorId:number){
+     this.carService.getCarsDetailsByColor(colorId).subscribe(response=>{
+       this.cars=response.data
+       this.dataLoaded=true;
+       this.setCarsPreviewImage(this.cars)
+     })
+   }
+
+  setCarsPreviewImage(cars:Cardetail[]){
+    cars.forEach(car => {
+      this.carImageService.getCarImagesByCarId(car.carId).subscribe(response=>{
+        car.imagePath = response.data[0].imagePath
+      })
+    });
   }
 
 }

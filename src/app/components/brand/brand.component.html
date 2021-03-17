@@ -1,18 +1,21 @@
-<h4 class="text-center">Brands</h4>
+<h2 class="text-center">MARKALAR</h2>
+<ul class="list-group">
+  <li routerLink="/cars">Tüm Ürünler</li>
+  <li  (click)="setCurrentBrand(brand)" 
+  routerLink="/cars/brand/{{brand.brandId}}" 
+  *ngFor="let brand of brands" 
+  [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
+</ul>
+<h6 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h6>
+
+<!-- <h4 class="text-center">Brands</h4>
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
   <span class="visually-hidden" Loading...></span>
 </div>
 <table *ngIf="dataLoaded==true" class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Brands</th>
-    </tr>
-  </thead>
   <tbody>
     <tr *ngFor="let brand of brands">
-      <td>{{brand.brandId}}</td>
       <td>{{brand.brandName}}</td>
     </tr>
   </tbody>
-</table>
+</table> -->

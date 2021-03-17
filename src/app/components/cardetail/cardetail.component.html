@@ -2,25 +2,23 @@
     <span class="visually-hidden">Loading...</span>
   </div>
   
-  <h2 class="text-center">Araç Detay Listesi</h2>
+  <h2 class="text-center">ARABA BİLGİLERİ</h2>
 <table *ngIf="dataLoaded == true" class="table">
   <thead>
     <tr>
-      <th>Araba No</th>
+      <th>Id</th>
       <th>Renk</th>
       <th>Marka</th>
       <th>Model Year</th>
       <th>Ücret</th>
       <th>Açıklama</th>
-      <th>Resim Ekleme Tarihi</th>
     </tr>
   </thead>
   <tr *ngFor="let cardetail of cardetails">
-    <td>{{ cardetail.carId }}</td>
+    <td>{{cardetail.carId}}</td>
     <td>{{ cardetail.colorName  }}</td>
     <td>{{ cardetail.brandName }}</td>
     <td>{{cardetail.modelYear}}</td>
     <td>{{ cardetail.dailyPrice }}</td>
-    <td>{{ cardetail.descriptions}}</td>
-    <td>{{cardetail.carImageDate}}</td>
+    <td>{{ cardetail.description}}</td>
 </table>

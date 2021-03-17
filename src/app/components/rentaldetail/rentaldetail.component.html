@@ -1,21 +1,20 @@
-<h2 class="text-center">Kiralama Detay Listesi</h2>
+<h2 class="text-center">ARABA KİRALAMA DETAY LİSTESİ</h2>
 <table *ngIf="dataLoaded == true" class="table">
   <thead>
     <tr>
       
-      <th>Id</th>
+
       <th>Marka</th>
-      <th>Müşteri İsmi</th>
+      <th>Müşteri İsmi-Soyismi</th>
       <th>Şirket Adı</th>
       <th>Aracı Alış Tarihi</th>
       <th>Aracı Teslim Tarihi</th>
     </tr>
   </thead>
   <tr *ngFor="let rentaldetail of rentaldetails">
-    <td>{{rentaldetail.rentalId}}</td>
     <td>{{rentaldetail.brandName}}</td>
-    <td>{{rentaldetail.userName}}</td>
-    <td>{{rentaldetail.customerName}}</td>
+    <td>{{rentaldetail.firstName + " "+ rentaldetail.lastName}}</td>
+    <td>{{rentaldetail.companyName}}</td>
     <td>{{rentaldetail.rentDate}}</td>
     <td>{{rentaldetail.returnDate}}</td>
   </tr>
