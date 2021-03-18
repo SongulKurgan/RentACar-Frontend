@@ -30,14 +30,14 @@ export class CarComponent implements OnInit {
   }
 
   getCars(){
-    this.carService.getCarsDetails().subscribe(response=>{
+    this.carService.getCarDetails().subscribe(response=>{
       this.cars=response.data
       this.dataLoaded=true;
       this.setCarsPreviewImage(this.cars)
     })  
   }
    getCardetailsByBrand(brandId:number){
-     this.carService.getCarsDetailsByBrand(brandId).subscribe(response=>{
+     this.carService.getCarDetailsByBrand(brandId).subscribe(response=>{
        this.cars=response.data
        this.dataLoaded=true;
        this.setCarsPreviewImage(this.cars)
@@ -45,7 +45,7 @@ export class CarComponent implements OnInit {
      })  
    }
    getCardetailsByColor(colorId:number){
-     this.carService.getCarsDetailsByColor(colorId).subscribe(response=>{
+     this.carService.getCarDetailsByColor(colorId).subscribe(response=>{
        this.cars=response.data
        this.dataLoaded=true;
        this.setCarsPreviewImage(this.cars)
