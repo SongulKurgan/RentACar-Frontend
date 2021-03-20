@@ -1,4 +1,4 @@
-   <div *ngIf="dataLoaded == false" class="spinner-border text-info" role="status">
+   <!-- <div *ngIf="dataLoaded == false" class="spinner-border text-info" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
   
@@ -21,8 +21,17 @@
     <td>{{cardetail.modelYear}}</td>
     <td>{{ cardetail.dailyPrice }}</td>
     <td>{{ cardetail.description}}</td>
-</table>  
-
+</table>   -->
+<div class="card mb-3">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{car.brandName}}</h5>
+    <p class="card-text">{{car.colorName}}</p>
+    <p class="card-text">{{car.modelYear}}</p>
+    <p class="card-text">{{car.dailyPrice}}</p>
+    <p class="card-text">{{car.description}}</p>
+  </div>
+</div>
 
 
  
