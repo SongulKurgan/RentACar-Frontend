@@ -13,6 +13,7 @@ import { CarimageService } from 'src/app/services/carimage.service';
 export class CarComponent implements OnInit {
   cars:Cardetail[] = [];
   carImages: CarImage[] = [];
+  filterCarText="";
   dataLoaded=false;
   constructor(private carService:CarService, 
     private activatedRoute:ActivatedRoute,
@@ -48,8 +49,7 @@ export class CarComponent implements OnInit {
        this.cars=response.data
        this.dataLoaded=true;
        this.setCarsPreviewImage(this.cars)
-       console.log(response)
-       
+       console.log(response)  
      })  
    }
    getCardetailsByColor(colorId:number){

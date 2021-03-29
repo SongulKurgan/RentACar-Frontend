@@ -22,11 +22,11 @@
     <td>{{ cardetail.dailyPrice }}</td>
     <td>{{ cardetail.description}}</td>
 </table>   -->
-<div class="card mb-3">
+<div class="card mb-3"  >
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+    <div class="carousel-inner" >
       <div *ngFor="let carimage of carimages;first as firstImage" class="carousel-item" [ngClass]="{active :firstImage}">
-        <img src="https://localhost:44352/images/{{carimage.imagePath}}" class="d-block w-100" alt="...">
+        <img src="https://localhost:44352/images/{{carimage.imagePath}}" class="d-block w-100" alt="..." >
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
@@ -38,13 +38,22 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <div class="card-body">
-    <h5 class="card-title">{{car.brandName}}</h5>
-    <p class="card-text">{{car.colorName}}</p>
-    <p class="card-text">{{car.modelYear}}</p>
-    <p class="card-text">{{car.dailyPrice}}</p>
-    <p class="card-text">{{car.description}}</p>
-  </div>
+  <tbody>
+    <div class="card-body">
+      <li class="list-group-item"><h5 class="card-title">{{car.brandName}}</h5></li>
+      <li class="list-group-item"><p class="card-text">{{car.colorName}}</p></li>
+      <li class="list-group-item"><p class="card-text">{{car.modelYear}}</p></li>
+      <li class="list-group-item"><p class="card-text">{{car.dailyPrice |currency: "TRY":"symbol-narrow"}}</p></li>
+      <li class="list-group-item"><p class="card-text">{{car.description}}</p></li>
+      <li class="list-group-item">
+      <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-success" type="button">KİRALA</button>
+      </div>
+      </li>
+    </div>
+
+  </tbody>
+  
 </div>
 
 

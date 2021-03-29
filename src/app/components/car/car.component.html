@@ -3,22 +3,29 @@
         <span class="visually-hidden">Loading...</span>
     </div>
     <div class="row-md-3"></div>
+    <div class="mb-3">
+     <h5><label for="filterCarText" class="form-label">Araç Ara</label></h5> 
+      <input type="text" [(ngModel)]="filterCarText" class="form-control" id="filterCarText" placeholder="araba ismi giriniz">
+    </div>
+    <div *ngIf="filterCarText" class="alert alert-success">
+      {{filterCarText}} aradınız.
+    </div>
+
     <div
         class="d-flex flex-wrap justify-content-center justify-content-xl-start"
-        style="gap: 0.75em; padding: 0;margin-top: 20px;"
-        >
-        <div *ngFor="let car of cars" class="card" style="width: 18rem;">
+        style="gap: 0.75em; padding: 0;margin-top: 20px;">
+        <div *ngFor="let car of cars | carFilter : filterCarText" class="card" style="width: 18rem;" >
           <div class="d-flex" style="height: 45%">
             <img src="https://localhost:44352/images/{{car.imagePath}}" class="card-img-top" alt="">
           </div>
             <div class="card-body">
-              <h5 class="card-title text-center">{{car.carId}}</h5>
-              <p class="card-text text-center">{{car.description}}</p>
+              <h5 class="card-title text-center">{{car.brandName}}</h5>
+              <p class="card-text text-center">{{car.carId}}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item text-center">{{car.brandName}}</li>
               <li class="list-group-item text-center">{{car.colorName}}</li>
-              <li class="list-group-item text-center">{{car.dailyPrice}} TRY</li>
+              <li class="list-group-item text-center">{{car.dailyPrice |currency: "TRY":"symbol-narrow"}} </li>
+              <li class="list-group-item text-center">{{car.description}}</li>
             </ul>
             <div class="card-body d-grid gap-2 col-6 mx-auto">
               <button type="button" routerLink = "/cardetails/{{car.carId}}" class="btn btn-dark text-center">Ayrıntılar</button>
