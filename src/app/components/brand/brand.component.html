@@ -1,15 +1,32 @@
-<h4><li class="list-group-item list-group-item-info">MARKALAR</li></h4>
-<div>
+<br>
+<h4><li class="list-group-item " style="color:black;background-color:salmon;">MARKALAR</li></h4>
+<div >
       <input type="text" class="form-control" id="filterBrandText" placeholder="marka ismi giriniz">
     </div>
-<ul class="list-group">
+<ul  class="list-group">
   <li  class="list-group-item" routerLink="/cars">Tüm Ürünler</li>
   <li  (click)="setCurrentBrand(brand)" 
   routerLink="/cars/brand/{{brand.brandId}}" 
   *ngFor="let brand of brands | brandFilter : filterBrandText" 
   [class]="getCurrentBrandClass(brand)">{{brand.brandName}}</li>
 </ul>
-<h6 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h6>
+<h6 *ngIf="currentBrand">{{currentBrand.brandName}} seçtiniz</h6> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- <h4 class="text-center">Brands</h4>
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
@@ -22,3 +39,4 @@
     </tr>
   </tbody>
 </table> -->
+

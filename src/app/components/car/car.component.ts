@@ -49,7 +49,7 @@ export class CarComponent implements OnInit {
        this.cars=response.data
        this.dataLoaded=true;
        this.setCarsPreviewImage(this.cars)
-       console.log(response)  
+       //console.log(response)  
      })  
    }
    getCardetailsByColor(colorId:number){
