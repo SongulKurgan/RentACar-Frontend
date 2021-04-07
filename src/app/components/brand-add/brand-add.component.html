@@ -1,1 +1,34 @@
-<p>brand-add works!</p>
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Marka Ekle</h5></div>
+            <div class="card-body">
+                <form [formGroup]="brandAddForm">
+                    <div class="mb-3">
+                        <label for="brandId" >Marka Numarası</label>
+                    <div class="form-group">
+                        <input type="number" id="brandId" 
+                        formControlName="brandId" 
+                        class="form-control"
+                         placeholder="Marka Numarası" />
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="brandName" >Marka Adı</label>
+                    <div class="form-group">
+                        <input type="text" id="brandName" 
+                        formControlName="branName" 
+                        class="form-control"
+                         placeholder="Marka Adı" />
+                    </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>

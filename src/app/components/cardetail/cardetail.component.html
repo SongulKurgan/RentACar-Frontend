@@ -39,8 +39,8 @@
     </button>
   </div>
   <tbody>
-    <div class="card-body">
-      <li class="list-group-item"> class="card-title">{{car.brandName}}</li>
+    <div  class="card-body" *ngIf="car">
+      <li class="list-group-item" > {{car.brandName}}</li>
       <li class="list-group-item"><p class="card-text">{{car.colorName}}</p></li>
       <li class="list-group-item"><p class="card-text">{{car.modelYear}}</p></li>
       <li class="list-group-item"><p class="card-text">{{car.dailyPrice |currency: "TRY":"symbol-narrow"}}</p></li>

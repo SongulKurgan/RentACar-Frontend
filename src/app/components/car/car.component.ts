@@ -63,7 +63,8 @@ export class CarComponent implements OnInit {
   setCarsPreviewImage(cars:Cardetail[]){
     cars.forEach(car => {
       this.carImageService.getCarImagesByCarId(car.carId).subscribe(response=>{
-        car.imagePath = response.data[0].imagePath
+         console.log(response)
+        car.imagePath=response.data[0].imagePath
       })
     });
   }
